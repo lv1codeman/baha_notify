@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windows 通知範例</title>
+  </head>
+  <body>
+    <h1>點擊按鈕發送通知</h1>
+    <button onclick="sendNotification()">發送通知</button>
+
+    <script>
+      function sendNotification() {
+        // 先確認瀏覽器支援通知
+        if (!("Notification" in window)) {
+          alert("你的瀏覽器不支援通知功能");
+          return;
+        }
+
+        // 取得使用者同意權限
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            new Notification("哈囉！這是網站通知 🎯", {
+              body: "這是一則測試通知訊息！",
+              icon: "https://via.placeholder.com/128", // 通知圖示
+            });
+          } else {
+            alert("你拒絕了通知權限");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

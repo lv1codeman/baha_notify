@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "巴哈姆特通知提醒",
+  "version": "1.0",
+  "permissions": ["storage", "notifications", "tabs", "alarms", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.gamer.com.tw/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": ["https://api.gamer.com.tw/*"]
+}
