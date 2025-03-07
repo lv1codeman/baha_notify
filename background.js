@@ -35,6 +35,7 @@ async function checkBahamutNotifications() {
       if (newCount > lastCount) {
         sendNotification("巴哈姆特通知", `你有 ${newCount} 則新通知！`);
       }
+      //   sendNotification("巴哈姆特通知", `你有 ${newCount} 則新通知！`);
 
       // 更新通知數量
       chrome.storage.local.set({ bahamutLastCount: newCount });
